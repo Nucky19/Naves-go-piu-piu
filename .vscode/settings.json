@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Naves go pium pium.sln"
+    "dotnet.defaultSolution": "Naves-go-piu-piu.sln"
 }

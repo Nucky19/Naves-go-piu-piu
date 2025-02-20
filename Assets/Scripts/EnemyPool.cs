@@ -3,36 +3,36 @@ using UnityEngine;
 
 public class EnemyPool : MonoBehaviour
 {
-    public static EnemyPool Instance; // Instancia singleton
-    public GameObject enemyPrefab; // Prefab del enemigo
-    public int poolSize = 10; // Tamaño del pool
+    public static EnemyPool Instance; 
+    public GameObject enemyPrefab; 
+    public int poolSize = 10; 
 
-    private List<Enemy> enemies; // Lista para almacenar los enemigos
+    private List<Enemy> enemies; 
 
     void Awake()
     {
-        Instance = this; // Asignar la instancia
+        Instance = this; 
         enemies = new List<Enemy>();
 
-        // Inicializar el pool de enemigos
+       
         for (int i = 0; i < poolSize; i++)
         {
             Enemy enemy = Instantiate(enemyPrefab).GetComponent<Enemy>();
-            enemy.gameObject.SetActive(false); // Desactivar el enemigo al instanciar
-            enemies.Add(enemy); // Agregar el enemigo al pool
+            enemy.gameObject.SetActive(false); 
+            enemies.Add(enemy); 
         }
     }
 
-    // Método para obtener un enemigo del pool
+   
     public Enemy GetEnemy()
     {
         foreach (Enemy enemy in enemies)
         {
-            if (!enemy.gameObject.activeInHierarchy) // Verificar si el enemigo está inactivo
+            if (!enemy.gameObject.activeInHierarchy) 
             {
-                return enemy; // Retornar el enemigo inactivo
+                return enemy; 
             }
         }
-        return null; // Si no hay enemigos disponibles
+        return null; 
     }
 }

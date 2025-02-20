@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public Transform bulletSpawnPoint; // Punto desde donde se disparan las balas
+    public Transform bulletSpawnPoint; 
 
     void Update()
     {
         Move();
-        if (Input.GetMouseButtonDown(0)) // Disparar al hacer clic
+        if (Input.GetMouseButtonDown(0)) 
         {
             Shoot();
         }
@@ -23,11 +23,11 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        Bullet bullet = BulletPool.Instance.GetPlayerBullet(); // Obtener una bala del pool del jugador
+        Bullet bullet = BulletPool.Instance.GetPlayerBullet(); 
         if (bullet != null)
         {
-            bullet.transform.position = bulletSpawnPoint.position; // Posición de la bala
-            bullet.Launch(Vector2.up); // Lanzar la bala hacia arriba
+            bullet.transform.position = bulletSpawnPoint.position; 
+            bullet.Launch(Vector2.up); 
         }
     }
 
@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
 {
     if (collider.gameObject.CompareTag("EnemyBullet") || collider.gameObject.CompareTag("Enemy"))
     {
-        Debug.Log("Pplayer hit by Enemy bullet!"); // Mensaje de depuración
-        gameObject.SetActive(false); // Desactivar el enemigo
+        Debug.Log("Pplayer hit by Enemy bullet!"); 
+        gameObject.SetActive(false); 
     }
 }
 }
